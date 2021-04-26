@@ -1,127 +1,88 @@
-1. Business modelling tools and Technical modelling tools
+# Assessment
 
-Technical modelling tools 
-ERD
- 
-- Entity Relationship Diagram used for Databases
+Validate Software
 
-Tools: Gliffy, Lucid Charts,   
+ICPTPRG520 Validate an application design against specifications
 
-2. Software development methodologies  
-- Agile/  
-- Waterflow  
-- RAD 
-- Extreme XP 
-- Feature Driven  
-- Scrum
+## PART 1
 
-3. Application architecture diagram
-- N-Tier (Layered) vs - Microservices
-- Application Architecture Diagram
-- Integration Architecture Diagram
-- Deployment Architecture Diagram
-- DevOps Architecture Diagram
-- Data Architecture Diagram
+1. Develop a proof of concept
+2. Present the prototype system
+3. Perform design and code validation
+4. Document and report validation results
 
-4. Software risk analysis
-- Estimates, Scope Creep, Stake holder expectations, Low Stake holder engagement,  
-- Requirements / Use Cases
--  Abuse or security analysis  
-- Unproven Technology  
-- Choice of Infrustruction
- 
-- Cloud, Server/On-Premise/Integrations
-- UX Design
- 
-- Framwork, Accesibility
-- Risk analysis
- 
-- Code Quality
- 
-- Anti Patterns,
- 
-- Poor Architecture
-- Test Design
- 
-- Data edge cases
-- Static Analysis tools
- 
-- Linters
-- Pen Testing
-  
-5. Database diagram processes and steps
-- ERD
-- Conceptual model   
-- Purpose of database     
-   - Monolith vs Microservice     
-- Relational, Object/JSON/NoSql Store, Key/Value Store, Event Sourced
-6. Design database process and steps  
-- Normalized tables     
-	- Entities     
-	- Attributes  
-	- Relationships, (1-1, 1-m, m-m)     
-	  - Define cardinality, maximum number of values
-	  - Define ordinality, minimum number of values     
-	  - Lhs can be zero or one or many     
-	  - Rhs can be zero, one or many       
-	  - Referential integrity, constraints, indexes
-7. Implement database database processes and steps  
-- DDL  
-	- create database  
-	- create table     
-		- primary key     
-		- attributes  
-		- create index and constraints  
-		- create foreign key references  
-		- create views   
-8. Principles of database-management systems.  
+A. Determine the procedures and tools required to perform
 
-- Shared collection of related data  
-- Data Modeling  
-- Data Storage    
-- Structured Data    
-- Unstructured Data  
-- Transactions (Local or Distributed)  
-- Referential Integrity  
-- Cardinatlity/Ordinality  
-- Distributed Data  
-- Data Warehouses / Big Data  
-- Relational, Object/JSON Store, Key/Value Stores, Event Sourced
+* Software requirements validation
+* Database validation
+* Software design validation
+* Source code validation
+* User Interface (UI) validation
+* Test validation
 
-9. Object-oriented programming concepts 
-- Encapsulation, Inheritance, Abstraction, Polymorphism
+B. Now it is time to design and build a prototype.
+1. Identify a prototyping tool to develop proof of concept
+2. Identify the use cases from the software requirements.
+3. Develop a prototype using the selected tool.
 
-10. Characteristics of a programming language (C#) 
-- Object Oriented 
-- Memory Management 
-- Garbage Collection 
-- Type Safe 
-- Compiled to Byte Code 
-- Cross Platform  
-11. Open-source development tools and platforms 
-- Git Hub 
-- VSCode 
-- Bootstrap, Material, Tailwind CSS 
-- Angular, React, Vue   
-12. Input and output requirements & examples 
-- Input   
-- Console, Terminal, Browser, Ports, Devices - 
-Output   - Console, Screen, Printer, Devices (3D Printer, Robot), Ports (Database, Message Queue)
-13. Testing techniques 
-- Unit Testing 
-- Integration Test 
-- Regression Testing 
-- Penn Testing 
-- User Acceptance Testing  
-14. Computer hardware & why it is important in soft dev
- 
-- PC, Mac, Embedded Device, IOT, Mobile (Android, IOS, Tablets) 
-- Operating systems, Kernals, VM's and Dockerization 
-- Provides both a physical devices  and virtual environments on which to run applications  
-15. Computer networking components & why it is important in soft dev 
-- Allows for distributed computing 
-- Scalable databases 
-- Scalable services 
-- Provides redundancy and resilience. 
-- Provides external backup stores
+C. Save your word-processed document as VDP_Part1
 
+## PART 2
+
+10-15 minutes to present your prototype
+
+Role Play Participants:
+  Client and Developer.
+
+1. Identify each use case requirements that you need to fulfil
+2. Confirm the completeness and correctness of the requirements using appropriate questioning and listening techniques.
+3. Demonstrate the prototype (from Part 1) to the client and determine whether any further refinements need to be made.
+4. Record the outcome of the presentation and any changes required in a document.
+
+## PART 3
+
+Now you have implement selected use cases, its time for you to validate it.
+
+Record your validation details
+- Date
+- Name
+- Procedures
+- Results (including screen shots)
+
+1. Validate the software design to ensure the design is complete, accurate and feasible.
+   1. Include diagrams, class, erd, activity, seq, flow etc...
+2. Validate the database structure and elements, inluding screenshots
+3. Validate the UI design
+4. Validate the software code for consistency and analysis of the code using 2 static analysis tools (c# and web). Include screen shots
+
+## PART 4
+
+Document and report validation results
+See: Original document for this.
+
+### Application Requirements
+
+Sydney club needs a simple membership system.
+
+System should allow club employees to enter member details.
+
+Future: Guests can sign-up and manage their membership online via the clubs website and via mobile app.
+
+## Database
+
+### Users
+
+The users table will hold a list of employees who can add new members to the system.
+
+* email - Valid email that acts as a unique user name
+* password - hashed value that holds the users password
+
+### Members
+
+Members table will store member details
+
+* First name
+* Last name
+* Phone number
+* Date of Birth
+  
