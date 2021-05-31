@@ -1,6 +1,8 @@
-# P11clubmembership
+# P11 Club Membership
 
 > P11 Club Membership Membership management system for a Sydney Club
+
+Read [docs](docs/Assessment-ClubMembership.md)
 
 ## Installation
 
