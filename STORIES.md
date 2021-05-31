@@ -8,9 +8,7 @@ As a Club Owner, I want to record and find member details, so I know who is in m
 
 ### Stories next on list
 
-As a Club Owner, I can DO_SOMETHING, so that I QUALITY_OF_LIFE
-
-- Subtask
+As a Club Owner, I want to record and find member details, so I know who is in my club
 
 ## Stories and tasks
 
@@ -26,9 +24,7 @@ Setup project management, requirement and SCRUM documents
 Setup new C# console app
 
 - Build out a standard .net console application using C#
-- (ToDo) Add automated semantic versioning
-- (ToDo) Add XXXX unit testing framework
-- (ToDo) Add XXXX linting
+- Add linting using style cop
 - Add local development watcher automatic watch and test
 - Add GitFlow support
 - Add GitHub Repository
