@@ -1,13 +1,14 @@
-using System;
-
 namespace ClubMembership.Web.Business
 {
+  using System;
+
   public class EmployeeEmailPredicate
   {
-    private const string WORK_EMAIL = "@club.com";
+    private const string WorkEmail = "@club.com";
 
-    public bool is_employee(string email) {
-      return email.Contains(WORK_EMAIL, StringComparison.OrdinalIgnoreCase);
+    public bool IsEmployee(string email)
+    {
+      return email.Contains(WorkEmail, StringComparison.OrdinalIgnoreCase);
     }
   }
 }

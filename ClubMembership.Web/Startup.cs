@@ -1,13 +1,10 @@
 namespace ClubMembership.Web
 {
   using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Threading.Tasks;
+  using System.Diagnostics;
   using ClubMembership.Web.Context;
   using Microsoft.AspNetCore.Builder;
   using Microsoft.AspNetCore.Hosting;
-  using Microsoft.AspNetCore.HttpsPolicy;
   using Microsoft.EntityFrameworkCore;
   using Microsoft.Extensions.Configuration;
   using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +22,10 @@ namespace ClubMembership.Web
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      // Send debugging to console
+      Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+      // Trace.Listeners.Add(new (Console.Out));
+
       string connectionString = "Server=localhost,1433; Database=P11;User=sa; Password=Hambaro3";
 
       services.AddDbContext<MsDbContext>(options => options.UseSqlServer(connectionString));

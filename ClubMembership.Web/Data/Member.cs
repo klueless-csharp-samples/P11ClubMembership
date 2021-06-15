@@ -6,16 +6,29 @@ namespace ClubMembership.Web.Data
 
   using System;
   using System.Collections.Generic;
+  using System.ComponentModel.DataAnnotations;
 
   public partial class Member
   {
     public int Id { get; set; }
 
     // Common fields
+    [Required]
     public string FirstName { get; set; }
+
+    [Required]
     public string LastName { get; set; }
+
+    [Required]
+    [EmailAddress]
     public string Email { get; set; }
+
+    [Required]
     public string Phone { get; set; }
+
+    [Required]
+    [DataType(DataType.Date)]
+    [Range(typeof(DateTime), "1/1/1966", "1/1/2040")]
     public string BirthDate { get; set; }
   }
 }
