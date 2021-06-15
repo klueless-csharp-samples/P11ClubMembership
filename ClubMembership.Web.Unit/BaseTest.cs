@@ -9,6 +9,6 @@ public class BaseTest
   {
     // dotnet test  --logger:"console;verbosity=detailed"
 
-    Trace.WriteLine("Starting Unit Tests");
+    // Trace.WriteLine("Starting Unit Tests");
   }
 }
