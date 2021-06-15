@@ -1,6 +1,7 @@
 # Project Assessment: Validate and test software
 
 Student number: 880616253
+
 Student name: David Cruwys
 
 ### Background
@@ -40,7 +41,6 @@ The following details must be captured when adding a new member to the system:
 ### 1 - Select one completed use case in your application.
 
 > "Club employee can access member pages for create, update, list and view"
-
 
 ### 2 - Perform research to find at least two (2) suitable tests to verify the completeness, reliability, and performance of the completed use case.
 
@@ -173,19 +173,25 @@ Mock some members in the database and ensure that data displays or is updated ba
 
 > D: Design test using appropriate formatting including test case number, description, preconditions, steps, expected result, and tool name (if applicable).
 
+```
+Test case number: #1001
+Title           : Employee Email Predicate
+Description     : When member email contains @club.com, member is an employee
 
-Test case number (TICKET # from Bug)
-Description: When name is changed, make sure it is not upper case
-Pre-conditions: name is lower
+Test steps      : valid email address with the domain name david@club.com
+Expected result : true
 
-Test steps: set name to upper
-Expected result: fail
+Test steps      : valid email address with the domain name david@personal.com
+Expected result : false
+```
 
+**Code to be tested**
 
-Tool name
-1.
-This tool makes possible to find the weak spots of a system under development from the source code only, without the need of simulating live conditions.
+![](./employee_email_addres_predicate.png)
 
+**Unit test examples**
+
+![](./employee-email-address-tests.png)
 
 END OF PART1
 
