@@ -2,6 +2,9 @@
 {
   using System;
   using System.Collections.Generic;
+  using System.Data;
+  using System.Diagnostics;
+  using System.IO;
   using System.Linq;
   using System.Threading.Tasks;
   using ClubMembership.Web.Context;
@@ -10,45 +13,65 @@
   using Microsoft.AspNetCore.Mvc.Rendering;
   using Microsoft.EntityFrameworkCore;
 
+  // Member controller has Diagnostics built included
   public class MemberController : Controller
   {
-    // Should be using DomainContext instead of MsDbContext
-    // private readonly DomainContext _context;
-    private readonly MsDbContext _context;
-
     public MemberController(MsDbContext context)
     {
-        _context = context;
+      Context = context;
     }
 
+    public DomainContext Context { get; set; }
+    
     // GET: Member
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Members.ToListAsync());
+      var count = Context.Members.Count();
+
+      // Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+      Debug.WriteLine("Get list of members");
+      Debug.WriteLine($"No of members: {count}");
+      Debug.WriteLineIf(count == 0, "No Members found");
+      Debug.WriteLine("Member names");
+
+      await Context.Members.ForEachAsync<Member>((m) =>
+      {
+        Debug.WriteLine(m.FirstName);
+      });
+
+      return View(await Context.Members.ToListAsync());
     }
 
     // GET: Member/Details/5
     public async Task<IActionResult> Details(int? id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
+      using (FileStream myFS = new FileStream("TraceIt.txt", FileMode.Append))
+      {
+        Trace.Listeners.Add(new TextWriterTraceListener(myFS));
+        Trace.WriteLine($"About to view user details: {id}");
+        Debug.WriteLine($"Debug - View user details: {id}");
+        // Trace.Close();
+      }
 
-        var member = await _context.Members
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (member == null)
-        {
-            return NotFound();
-        }
+      if (id == null)
+      {
+        return NotFound();
+      }
 
-        return View(member);
+      var member = await Context.Members
+        .FirstOrDefaultAsync(m => m.Id == id);
+      if (member == null)
+      {
+        return NotFound();
+      }
+
+      return View(member);
     }
 
     // GET: Member/Create
     public IActionResult Create()
     {
-        return View();
+      return View();
     }
 
     // POST: Member/Create
@@ -61,9 +84,9 @@
     {
       if (ModelState.IsValid)
       {
-          _context.Add(member);
-          await _context.SaveChangesAsync();
-          return RedirectToAction(nameof(Index));
+        Context.Add(member);
+        await Context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
       }
 
       return View(member);
@@ -72,18 +95,18 @@
     // GET: Member/Edit/5
     public async Task<IActionResult> Edit(int? id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
+      if (id == null)
+      {
+        return NotFound();
+      }
 
-        var member = await _context.Members.FindAsync(id);
-        if (member == null)
-        {
-            return NotFound();
-        }
+      var member = await Context.Members.FindAsync(id);
+      if (member == null)
+      {
+        return NotFound();
+      }
 
-        return View(member);
+      return View(member);
     }
 
     // POST: Member/Edit/5
@@ -95,29 +118,29 @@
     {
       if (id != member.Id)
       {
-          return NotFound();
+        return NotFound();
       }
 
       if (ModelState.IsValid)
       {
-        try
+      try
+      {
+        Context.Update(member);
+        await Context.SaveChangesAsync();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+        if (!MemberExists(member.Id))
         {
-            _context.Update(member);
-            await _context.SaveChangesAsync();
+          return NotFound();
         }
-        catch (DbUpdateConcurrencyException)
+        else
         {
-            if (!MemberExists(member.Id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
+          throw;
         }
+      }
 
-        return RedirectToAction(nameof(Index));
+      return RedirectToAction(nameof(Index));
       }
 
       return View(member);
@@ -126,19 +149,19 @@
     // GET: Member/Delete/5
     public async Task<IActionResult> Delete(int? id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
+      if (id == null)
+      {
+        return NotFound();
+      }
 
-        var member = await _context.Members
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (member == null)
-        {
-            return NotFound();
-        }
+      var member = await Context.Members
+        .FirstOrDefaultAsync(m => m.Id == id);
+      if (member == null)
+      {
+        return NotFound();
+      }
 
-        return View(member);
+      return View(member);
     }
 
     // POST: Member/Delete/5
@@ -147,15 +170,15 @@
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        var member = await _context.Members.FindAsync(id);
-        _context.Members.Remove(member);
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+      var member = await Context.Members.FindAsync(id);
+      Context.Members.Remove(member);
+      await Context.SaveChangesAsync();
+      return RedirectToAction(nameof(Index));
     }
 
     private bool MemberExists(int id)
     {
-        return _context.Members.Any(e => e.Id == id);
+      return Context.Members.Any(e => e.Id == id);
     }
   }
 }

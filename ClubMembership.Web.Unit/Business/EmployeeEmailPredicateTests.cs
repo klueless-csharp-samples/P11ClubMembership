@@ -1,42 +1,42 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+// using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using ClubMembership.Web.Business;
+// using ClubMembership.Web.Business;
 
-namespace ClubMembership.Web.Unit.Busines
-{
-  // EmployeeEmailPredicate
-  [TestClass]
-  public class EmployeeEmailPredicateTests
-  {
-    [TestMethod]
-    public void EmployeeWithUppercaseEmail()
-    {
-      var predicate = new EmployeeEmailPredicate();
+// namespace ClubMembership.Web.Unit.Busines
+// {
+//   // EmployeeEmailPredicate
+//   [TestClass]
+//   public class EmployeeEmailPredicateTests
+//   {
+//     [TestMethod]
+//     public void EmployeeWithUppercaseEmail()
+//     {
+//       var predicate = new EmployeeEmailPredicate();
 
-      var is_valid = predicate.is_employee("david@CLUB.COM");
+//       var is_valid = predicate.IsEmployee("david@CLUB.COM");
 
-      Assert.IsTrue(is_valid);
-    }
+//       Assert.IsTrue(is_valid);
+//     }
 
-    [TestMethod]
-    public void EmployeeWithLowercaseEmail()
-    {
-      var predicate = new EmployeeEmailPredicate();
+//     [TestMethod]
+//     public void EmployeeWithLowercaseEmail()
+//     {
+//       var predicate = new EmployeeEmailPredicate();
 
-      var is_valid = predicate.is_employee("david@club.com");
+//       var is_valid = predicate.IsEmployee("david@club.com");
 
-      Assert.IsTrue(is_valid);
-    }
+//       Assert.IsTrue(is_valid);
+//     }
 
 
-    [TestMethod]
-    public void NonEmployeeWithEmail()
-    {
-      var predicate = new EmployeeEmailPredicate();
+//     [TestMethod]
+//     public void NonEmployeeWithEmail()
+//     {
+//       var predicate = new EmployeeEmailPredicate();
 
-      var is_valid = predicate.is_employee("david@personal.com");
+//       var is_valid = predicate.IsEmployee("david@personal.com");
 
-      Assert.IsFalse(is_valid);
-    }
-  }
-}
+//       Assert.IsFalse(is_valid);
+//     }
+//   }
+// }
