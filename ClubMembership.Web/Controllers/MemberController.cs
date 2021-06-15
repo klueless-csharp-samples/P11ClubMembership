@@ -30,9 +30,9 @@
 
       // Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
       Debug.WriteLine("Get list of members");
-      Debug.WriteLine($"No of members: {count}");
-      Debug.WriteLineIf(count == 0, "No Members found");
-      Debug.WriteLine("Member names");
+      // Debug.WriteLine($"No of members: {count}");
+      // Debug.WriteLineIf(count == 0, "No Members found");
+      // Debug.WriteLine("Member names");
 
       await Context.Members.ForEachAsync<Member>((m) =>
       {
@@ -45,25 +45,26 @@
     // GET: Member/Details/5
     public async Task<IActionResult> Details(int? id)
     {
-      using (FileStream myFS = new FileStream("TraceIt.txt", FileMode.Append))
-      {
-        Trace.Listeners.Add(new TextWriterTraceListener(myFS));
-        Trace.WriteLine($"About to view user details: {id}");
-        Debug.WriteLine($"Debug - View user details: {id}");
-        // Trace.Close();
-      }
+      // using (FileStream myFS = new FileStream("TraceIt.txt", FileMode.Append))
+      // {
+      //   Trace.Listeners.Add(new TextWriterTraceListener(myFS));
+      //   Trace.WriteLine($"About to view user details: {id}");
+      //   Debug.WriteLine($"Debug - View user details: {id}");
+      //   // Trace.Close();
+      // }
 
       if (id == null)
       {
         return NotFound();
       }
 
-      var member = await Context.Members
-        .FirstOrDefaultAsync(m => m.Id == id);
+      var member = await Context.Members.FirstOrDefaultAsync(m => m.Id == id);
       if (member == null)
       {
         return NotFound();
       }
+
+      Debug.WriteLine($"View member details: {id}-{member.FirstName} {member.LastName}");
 
       return View(member);
     }
@@ -71,6 +72,8 @@
     // GET: Member/Create
     public IActionResult Create()
     {
+      Debug.WriteLine("Create member");
+
       return View();
     }
 
@@ -105,6 +108,8 @@
       {
         return NotFound();
       }
+
+      Debug.WriteLine($"Edit member: {id}-{member.FirstName} {member.LastName}");
 
       return View(member);
     }
