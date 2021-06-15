@@ -173,7 +173,7 @@ Mock some members in the database and ensure that data displays or is updated ba
 
 > D: Design test using appropriate formatting including test case number, description, preconditions, steps, expected result, and tool name (if applicable).
 
-```
+```bash
 Test case number: #1001
 Title           : Employee Email Predicate
 Description     : When member email contains @club.com, member is an employee
