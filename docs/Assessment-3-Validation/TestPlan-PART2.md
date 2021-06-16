@@ -16,21 +16,23 @@ The system should allow club employees to add new members to the system, update 
 
 > 1 - Test environment requirements for each test
 
-- Unit Tests
+**Unit Tests**
+
 - Add nuget packages
-  - MSTest.TestAdapter, Version: 2.1.1
-  - MSTest.TestFramework, Version: 2.1.1
+  - `MSTest.TestAdapter, Version: 2.1.1`
+  - `MSTest.TestFramework, Version: 2.1.1`
 - Setup mock database
 - Add mock records
 - Run target code
 - Check test ran using Assertions
 
-- UX Web Integration Tests
+**UX Web Integration Tests**
+
 - Add nuget packages
-  - MSTest.TestAdapter, Version: 2.1.1
-  - MSTest.TestFramework, Version: 2.1.1
-  - Selenium.WebDriver, Version: 3.141.0
-  - Selenium.WebDriver.ChromeDriver, Version: 90
+  - `MSTest.TestAdapter, Version: 2.1.1`
+  - `MSTest.TestFramework, Version: 2.1.1`
+  - `Selenium.WebDriver, Version: 3.141.0`
+  - `Selenium.WebDriver.ChromeDriver, Version: 90`
 - Setup selenium
 - Instantiate chrome browser with options to run in SSL mode
 - Add mock records
@@ -39,16 +41,19 @@ The system should allow club employees to add new members to the system, update 
 
 > 2 - Two automated test tools used and what makeas them different
 
-- MSTest
+**MSTest**
   
-  - A unit testing framework that can execute code and test that the code when run with correctly setup data will return a value or update the environment in an expected manner.
+A unit testing framework that can execute code and test that the code when run with correctly setup data will return a value or update the environment in an expected manner.
 
 
-- MSTest with selenium
+**MSTest with selenium**
 
-  - Turns MSTest into a web integration tool for doing automated browser requests using a real headless browser (FireFox, Chrome etc.)
-  - This differs from automated unit tests because it interacts through the front end client in a fashion similar to a human user and thus has both benefits and weaknesses over standard unit testing.
-  - It can test widgets that a user would interact with, such as a button or an input form.
+
+Turns MSTest into a web integration tool for doing automated browser requests using a real headless browser (FireFox, Chrome etc.)
+
+This differs from automated unit tests because it interacts through the front end client in a fashion similar to a human user and thus has both benefits and weaknesses over standard unit testing.
+
+It can test widgets that a user would interact with, such as a button or an input form.
 
 > 3 - URLS' of research documents
 
@@ -58,7 +63,7 @@ The system should allow club employees to add new members to the system, update 
 
 > 4 - Testing steps and screenshots
 
-Covering these topics
+The following topics are covered and labeled
 
 - Test Environment Setup
 - Test suite or script including input data
@@ -69,13 +74,23 @@ Covering these topics
 
 > Test Environment Setup (for browser)
 
-This environment setup will load chrome, goto a URL, run a specific test and then close the chrome browser
+This environment setup will
+
+- Load chrome, 
+- Goto a URL
+- Run a specific test and 
+- Then close the chrome browser
 
 ![](./selenium-test-helper.png)
 
 > Test Environment Setup (for mock data)
 
-Mock some members in the database and ensure that data displays or is updated based on congtroller actions. eg. Edit member may changes name bob to jane.
+Mock some members in the database and ensure that data displays or is updated based on controller actions.
+
+eg. Edit member may changes name Ben to Alice.
+
+NOTE: This Setup will also run the test that is provided via anonymous lambda expression.
+
 
 ![](./mock-data-setup.png)
 
