@@ -68,9 +68,11 @@ namespace ClubMembership.Web.Unit
         context.Members.Add(ben);
         context.SaveChanges();
 
+        // Setup dependent controller
         var controller = new MemberController(null);
         controller.Context = context;
 
+        // Run the tests
         test.Invoke(controller);
 
         // Cleanup Database
