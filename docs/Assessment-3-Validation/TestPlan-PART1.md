@@ -184,7 +184,7 @@ Expected result : true
 Test steps      : valid email address with the domain name david@personal.com
 Expected result : false
 ```
-
+  
 **Code to be tested**
 
 ![](./employee_email_addres_predicate.png)

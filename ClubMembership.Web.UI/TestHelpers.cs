@@ -1,8 +1,7 @@
 namespace ClubMembership.Web.UI
 {
     using System;
-  using Microsoft.VisualStudio.TestTools.UnitTesting;
-  using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Chrome;
 
     public class TestHelpers
     {

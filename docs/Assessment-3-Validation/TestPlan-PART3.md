@@ -12,25 +12,47 @@ Currently the club has recorded their members’ details in a book but would lik
 
 The system should allow club employees to add new members to the system, update their details, cancel their membership, and display all members’ details.
 
-PART 3
-
 1. Defects found
 
-- employee email predicated failed for @work.com.au
+- Employee email predicated failed for @club.com.au
 
-2. Debugging steps to track the defect.
+The employee predicate class is a validation that checks if a member email address is for someone who works at the club.
 
-Showed code with valid work address that returned true
-and invalid work address that also retruend true
+Employees can be members, but we want to flag that they are also employees.
 
-The second would be the failure 
+example emails for employees include david@club.com and alice@club.com and this code works OK, but a billy@club.com.au [note the .AU] registered as a member and he is not an employee.
 
-Screen shot before and after the fix
+1. Debugging steps to track the defect.
 
-3. Details of fgixes implemented
+I went to the list of members and found a member who was also an employee `david@club.com` and changed the email address to `billy@club.com.au` and the flag for employee did not change.
 
-4. Testresults after Debugging
-   
+So then went and created a new test for `billy@club.com.au`, see below and the test also failed.
+
+**Test Failing**
+
+![](./predicate-failed-test.png)
+
+**Unit Test Code**
+
+The middle (or 2nd) test is the new test that was added is is currently failing.
+
+![](./predicate-failed-code.png)
+
+**Screen shot before**
+
+The existing code checks if `"@club.com"` exists in the email address, this is fine for .com, but not good for `"@club.com.au" or "@club.com.xyz"`
+
+![](./predicate-class-before-fix.png)
+
+**Screen shot after**
+
+Changed `.Contains` to `.EndsWith`
+
+![](./predicate-class-after-fix.png)
+
+### Test Results after Debugging
+
+![](./predicate-success-test.png)   
 PART 4
 
 See test plan document.docx
