@@ -108,13 +108,15 @@ NOTE: This Setup will also run the test that is provided via anonymous lambda ex
 
 **Test Code**
 
+This is a list of each test that runs, these tests are designed to simulate users accessing various pages on the web application.
+
 ![](./selenium-test-code.png)
 
 #### Unit Tests
 
 > Use of testing tool for unit testing
 
-The second type of test will ensure that controller actions will run correctly when called with valid paramater values.
+The second type of test will ensure that controller actions and business services will run correctly when called with valid paramater values.
 
 **Unit Test Execution**
 
@@ -125,8 +127,15 @@ The second type of test will ensure that controller actions will run correctly w
 
 **Unit Test Setup/Teardown**
 
+- Setup test data
+- Create a controller
+- Run specific test
+- Remove test data
+
 ![](./controller-unit-test-setup.png)
 
 **Code Unit Tests**
+
+Test each action in the controller
 
 ![](./controller-unit-test.png)
