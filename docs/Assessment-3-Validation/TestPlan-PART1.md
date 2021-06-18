@@ -46,16 +46,13 @@ The following details must be captured when adding a new member to the system:
 
 > Browser tests and unit tests. 
 
+**Browser Test**
+
 The first type of test will be browser tests that ensure that the webserver is serving up pages correctly based on valid URL's. 
 
 These tests are designed to simulate users accessing various pages on the web application.
 
-**Test Execution**
-
-![](./selenium-test-metric.png)
-
-**Code**
-![](./selenium-test-code.png)
+**Unit Test**
 
 The second type of test will ensure that controller actions will run correctly when called with valid paramater values.
 
@@ -65,8 +62,6 @@ The second type of test will ensure that controller actions will run correctly w
 
 **Code**
 ![](./controller-unit-test.png)
-
-
 
 ### 3 - Based on my research, determine the following:
 
