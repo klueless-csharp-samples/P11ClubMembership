@@ -70,7 +70,9 @@ The following topics are covered in this section and will be labeled using the s
 - Use of testing tools to execute test cases
 - Test record to store result
 
-**Selenium Test Wrapper/Helper**
+#### Selenium Integration Tests
+
+**Selenium Test**
 
 > Test Environment Setup (for browser)
 
@@ -80,6 +82,14 @@ This environment setup will
 - Navigate to URL
 - Run a single test that is provided via lambda expression (anonymous function) 
 - Close the chrome browser
+
+**Integration Test Execution**
+
+> Use of testing tool for web integration
+
+![](./selenium-test-metric.png)
+
+**Test Wrapper/Helper**
 
 ![](./selenium-test-helper.png)
 
@@ -91,18 +101,16 @@ eg. Edit member may changes name Ben to Alice.
 
 NOTE: This Setup will also run the test that is provided via anonymous lambda expression.
 
+**Mocking Data**
 
 ![](./mock-data-setup.png)
 
-**Selenium Web Integration Test Execution**
 
-> Use of testing tool for web integration
-
-![](./selenium-test-metric.png)
-
-**Selenium Test Code**
+**Test Code**
 
 ![](./selenium-test-code.png)
+
+#### Unit Tests
 
 **MSTest Unit Test Execution**
 
