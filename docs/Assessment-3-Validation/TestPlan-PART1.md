@@ -165,7 +165,9 @@ Here is a simple example of how a test could lookup
 
 > C: Design test cases using appropriate test input data determined from the requirements
 
-Mock some members in the database and ensure that data displays or is updated based on congtroller actions. eg. Edit member may changes name bob to jane.
+Mock some members in the database and ensure that data displays or is updated based on controller actions.
+
+eg. Edit member may changes name bob to jane.
 
 ![](./mock-data-setup.png)
 
@@ -182,6 +184,10 @@ Expected result : true
 Test steps      : valid email address with the domain name david@personal.com
 Expected result : false
 ```
+
+#### Example code
+
+Example code for Employee Email Predicate
   
 **Code to be tested**
 
