@@ -54,14 +54,7 @@ These tests are designed to simulate users accessing various pages on the web ap
 
 **Unit Test**
 
-The second type of test will ensure that controller actions will run correctly when called with valid paramater values.
-
-**Test Execution**
-
-![](./controller-unit-test-metric.png)
-
-**Code**
-![](./controller-unit-test.png)
+The second type of test will ensure that controller actions and business services will run correctly when called with valid paramater values.
 
 ### 3 - Based on my research, determine the following:
 
