@@ -112,16 +112,20 @@ NOTE: This Setup will also run the test that is provided via anonymous lambda ex
 
 #### Unit Tests
 
-**MSTest Unit Test Execution**
-
 > Use of testing tool for unit testing
 
 The second type of test will ensure that controller actions will run correctly when called with valid paramater values.
+
+**Unit Test Execution**
 
 ![](./controller-unit-test-metric.png)
 
 > Test suite or script including input data
 > Test record to store result
+
+**Unit Test Setup/Teardown**
+
+![](./controller-unit-test-setup.png)
 
 **Code Unit Tests**
 
