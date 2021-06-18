@@ -23,6 +23,10 @@ The system should allow club employees to add new members to the system, update 
 
 ---
 
+The rest of this document is just pasted from part 1, 2 and 3
+
+---
+
 ## Part 1: Prepare test document and data
 
 #### Review and analyse the software requirements in the case study. 
