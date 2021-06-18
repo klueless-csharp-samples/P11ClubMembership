@@ -76,7 +76,9 @@ Scope: Only test that the controller action runs without error when called with 
 
 The methodology for establishing quality requirements, identifying, implementing, analyzing, and validating the process, and product of software quality metrics.
 
-Examples of Testing Methodologies are Unit Testing, Integration Testing, System Testing and, Performance Testing etc. Each testing methodology has a defined test objective, test strategy, and deliverables.
+**Examples of Testing Methodologies**
+
+Examples include Unit Testing, Integration Testing, System Testing and, Performance Testing etc. Each testing methodology has a defined test objective, test strategy, and deliverables.
 
 Integration tests are being used to check that public end point works from a browser, these tests check that users can access system via public web endpoints.
 
@@ -141,6 +143,8 @@ Code walk-through/demonstration.
 
 User Acceptance Testing - UAT is based on a user running the application and checking that it works while using normal workflows.
 
+I'll be using page load tests for each of the membership pages, create, update, remove, list and show to ensure that the page is actually accessible by the user.
+
 > B: Design test cases using dynamic test design technique
 
 Code that runs automatically, eg. unit tests
@@ -150,6 +154,12 @@ Unit tests require the following concepts
 - Data setup, so that you have useful inputs and dependencies
 - Execution of the code ot be tested.
 - Fixed and known expectations
+
+I'll be using unit tests that test controller actions and a business service.
+
+Here is a simple example of how a test could lookup
+
+**Example only**
 
 ![](./example-test-structure.png)
 
