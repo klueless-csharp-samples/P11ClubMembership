@@ -76,10 +76,10 @@ The following topics are covered in this section and will be labeled using the s
 
 This environment setup will
 
-- Load chrome, 
-- Goto a URL
-- Run a specific test and 
-- Then close the chrome browser
+- Load chrome
+- Navigate to URL
+- Run a single test that is provided via lambda expression (anonymous function) 
+- Close the chrome browser
 
 ![](./selenium-test-helper.png)
 
