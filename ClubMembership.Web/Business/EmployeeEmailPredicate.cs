@@ -8,7 +8,7 @@ namespace ClubMembership.Web.Business
 
     public bool IsEmployee(string email)
     {
-      return email.Contains(WorkEmail, StringComparison.OrdinalIgnoreCase);
+      return email.EndsWith(WorkEmail, StringComparison.OrdinalIgnoreCase);
     }
   }
 }

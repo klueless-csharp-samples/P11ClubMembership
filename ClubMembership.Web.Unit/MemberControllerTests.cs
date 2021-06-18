@@ -53,33 +53,33 @@ namespace ClubMembership.Web.Unit
       });
     }
 
-    public void SetupTest(Action<MemberController> test) {
-      var options = new DbContextOptionsBuilder<DomainContext>()
-            .UseInMemoryDatabase(databaseName: "ClubMembershipDatabase")
-            .Options;
+public void SetupTest(Action<MemberController> test) {
+  var options = new DbContextOptionsBuilder<DomainContext>()
+        .UseInMemoryDatabase(databaseName: "ClubMembershipDatabase")
+        .Options;
 
-      using (var context = new DomainContext(options))
-      {
-        // Setup Database
-        var david = new Member { Id = 1, FirstName = "David", LastName = "Anderson", Email = "david@xyz.com", Phone = "02 2222 3333", BirthDate = "23/01/1990" };
-        var ben = new Member { Id = 2, FirstName = "Ben", LastName = "Smith", Email = "ben@smith.com", Phone = "02 1111 4444", BirthDate = "12/01/1990" };
+  using (var context = new DomainContext(options))
+  {
+    // Setup Database
+    var david = new Member { Id = 1, FirstName = "David", LastName = "Anderson", Email = "david@xyz.com", Phone = "02 2222 3333", BirthDate = "23/01/1990" };
+    var ben = new Member { Id = 2, FirstName = "Ben", LastName = "Smith", Email = "ben@smith.com", Phone = "02 1111 4444", BirthDate = "12/01/1990" };
 
-        context.Members.Add(david);
-        context.Members.Add(ben);
-        context.SaveChanges();
+    context.Members.Add(david);
+    context.Members.Add(ben);
+    context.SaveChanges();
 
-        // Setup dependent controller
-        var controller = new MemberController(null);
-        controller.Context = context;
+    // Setup dependent controller
+    var controller = new MemberController(null);
+    controller.Context = context;
 
-        // Run the tests
-        test.Invoke(controller);
+    // Run the tests
+    test.Invoke(controller);
 
-        // Cleanup Database
-        context.Members.Remove(david);
-        context.Members.Remove(ben);
-        context.SaveChanges();
-      }
-    }
+    // Cleanup Database
+    context.Members.Remove(david);
+    context.Members.Remove(ben);
+    context.SaveChanges();
+  }
+}
   }
 }
