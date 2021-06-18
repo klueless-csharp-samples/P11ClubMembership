@@ -1,8 +1,8 @@
 # Project Assessment: Validate and test software
 
-Student number: 880616253
+Student number: `880616253`
 
-Student name: David Cruwys
+Student name: `David Cruwys`
 
 ### Background
 
