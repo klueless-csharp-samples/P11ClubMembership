@@ -29,14 +29,18 @@
       var count = Context.Members.Count();
 
       // Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+      Debug.WriteLine("--------------------------------------------------------------------------------");
       Debug.WriteLine("Get list of members");
-      // Debug.WriteLine($"No of members: {count}");
-      // Debug.WriteLineIf(count == 0, "No Members found");
-      // Debug.WriteLine("Member names");
+      Debug.WriteLine("--------------------------------------------------------------------------------");
+      Debug.WriteLine($"No of members: {count}");
+      Debug.WriteLineIf(count < 10, "You don't have many members yet");
+      Debug.WriteLine("--------------------------------------------------------------------------------");
+      Debug.WriteLine("Member names");
+      Debug.WriteLine("--------------------------------------------------------------------------------");
 
       await Context.Members.ForEachAsync<Member>((m) =>
       {
-        Debug.WriteLine(m.FirstName);
+        Debug.WriteLine($"{m.FirstName} {m.LastName}");
       });
 
       return View(await Context.Members.ToListAsync());
@@ -45,13 +49,29 @@
     // GET: Member/Details/5
     public async Task<IActionResult> Details(int? id)
     {
-      // using (FileStream myFS = new FileStream("TraceIt.txt", FileMode.Append))
-      // {
-      //   Trace.Listeners.Add(new TextWriterTraceListener(myFS));
-      //   Trace.WriteLine($"About to view user details: {id}");
-      //   Debug.WriteLine($"Debug - View user details: {id}");
-      //   // Trace.Close();
-      // }
+      Debug.WriteLine("--------------------------------------------------------------------------------");
+      Debug.WriteLine("Member Details");
+      Debug.WriteLine("--------------------------------------------------------------------------------");
+
+      // Open TraceIt.txt, write log messages, close file
+      using (FileStream myFS = new FileStream("TraceIt.txt", FileMode.Append))
+      {
+        Trace.Listeners.Add(new TextWriterTraceListener(myFS));
+        Trace.WriteLine($"About to view user details: {id}");
+        Debug.WriteLine($"Debug - View user details: {id}");
+      }
+
+      try
+      {
+        if (id == 69) {
+          throw new Exception("User 69 is not valid");
+        }
+      }
+      catch (System.Exception ex)
+      {
+         Trace.TraceError(ex.Message);
+         Trace.TraceError(ex.StackTrace);
+      }
 
       if (id == null)
       {
@@ -121,6 +141,10 @@
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,Phone,BirthDate")] Member member)
     {
+      Debug.WriteLine("--------------------------------------------------------------------------------");
+      Debug.WriteLine("Save Member Details");
+      Debug.WriteLine("--------------------------------------------------------------------------------");
+
       if (id != member.Id)
       {
         return NotFound();
@@ -130,8 +154,12 @@
       {
       try
       {
+        Trace.TraceInformation("Save Member - Started");
+        Debug.WriteLine($"Save Member details: {id}-{member.FirstName} {member.LastName}");
+
         Context.Update(member);
         await Context.SaveChangesAsync();
+        Trace.TraceInformation("Save Member - Finished");
       }
       catch (DbUpdateConcurrencyException)
       {
