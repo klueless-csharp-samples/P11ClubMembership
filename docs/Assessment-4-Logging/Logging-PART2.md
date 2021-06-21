@@ -34,27 +34,3 @@ You can create your own output providers or use 3rd party providers for speciali
 ![](./log-trace-listener.png)
 
 ![](./log-member-detail-file.png)
-
-PART 3
-
-Profiling tools
-
-1. At least two profiling tools and their functions
-
-Is Site Running.com: Will ping your website on a periodical basis and alert you know if site is down.
-
-1. At least two profiling tools and their functions
-
-Is Site Running.com: Will ping your website on a periodical basis and alert you know if site is down.
-
-
-stackify prefix / retrace
-open source visual studio profiler
-
-Find 2 nuget profilers and just run them
-
-1. Screenshot with Ram and Usage stats
-2. Which part of application consuremd resources
-3. Changes implement4ed to improve performance
-   1. show code to a memoized db lookup
-`
