@@ -152,28 +152,28 @@
 
       if (ModelState.IsValid)
       {
-      try
-      {
-        Trace.TraceInformation("Save Member - Started");
-        Debug.WriteLine($"Save Member details: {id}-{member.FirstName} {member.LastName}");
-
-        Context.Update(member);
-        await Context.SaveChangesAsync();
-        Trace.TraceInformation("Save Member - Finished");
-      }
-      catch (DbUpdateConcurrencyException)
-      {
-        if (!MemberExists(member.Id))
+        try
         {
-          return NotFound();
-        }
-        else
-        {
-          throw;
-        }
-      }
+          Trace.TraceInformation("Save Member - Started");
+          Debug.WriteLine($"Save Member details: {id}-{member.FirstName} {member.LastName}");
 
-      return RedirectToAction(nameof(Index));
+          Context.Update(member);
+
+          await Context.SaveChangesAsync();
+          Trace.TraceInformation("Save Member - Finished");
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+          if (!MemberExists(member.Id))
+          {
+            return NotFound();
+          }
+          else
+          {
+            throw;
+          }
+        }
+        return RedirectToAction(nameof(Index));
       }
 
       return View(member);
