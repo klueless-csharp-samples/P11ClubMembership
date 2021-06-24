@@ -59,3 +59,18 @@ dotnet trace convert --format speedscope dotnet_20210621_204505.nettrace
 ```
 
 ![](./../speedscope.png)
+
+### Identify the parts that are using most resources
+
+I identified using instrumentation that persisting of users was taking too long.
+
+### Changes implemented to improve performances
+
+Added timer softare before and after
+Check how long it was taking
+Realized that an index was missing, added the index and time is now in acceptable limits
+
+
+`POST` https://localhost:5001/Member/Edit/5
+
+![](./log-save-member-performance.png)
