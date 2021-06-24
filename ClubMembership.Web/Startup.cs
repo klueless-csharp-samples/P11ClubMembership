@@ -42,7 +42,7 @@ namespace ClubMembership.Web
     {
       Trace.TraceWarning("Configure Services");
 
-      string connectionString = "Server=localhost,1433; Database=P11;User=sa; Password=Hambaro3";
+      string connectionString = "Server=localhost,1433; Database=P11;User=sa; Password=Password3";
 
       Trace.WriteLine("Setup DB Context");
       services.AddDbContext<MsDbContext>(options => options.UseSqlServer(connectionString));

@@ -65,7 +65,7 @@ class AppSettings
         description:                   'ClubMembership in C#',
         application:                   'ClubMembership',
         database:                      'P11',
-        database_password:             'Hambaro3',
+        database_password:             'Password3',
         git_repo_name:                 'ClubMembership',
         git_organization:              'klueless-csharp-samples',
         avatar:                        'Club President',
